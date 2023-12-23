@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,700&display=swap');
+:root{
+    /* ## Colors
+
+### Primary */
+
+--Soft-red: hsl(10, 79%, 65%);
+--Cyan: hsl(186, 34%, 60%);
+
+/* ### Neutral */
+
+--Dark-brown: hsl(25, 47%, 15%);
+--Medium-brown: hsl(28, 10%, 53%);
+--Cream: hsl(27, 66%, 92%);
+--Very-pale-orange: hsl(33, 100%, 98%);
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'DM Sans', sans-serif;
+}
+body{
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--Cream);
+}
+
+.balance{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    width: 400px;
+    background-color: var(--Soft-red);
+    border-radius: 10px;
+}
+.word{
+    color: var(--Very-pale-orange);
+}
+.word > p{
+    font-size: 14px;
+}
+.word > h2{
+    padding-top: 5px;
+}
+.second-card{
+    margin: 20px 0px;
+    width: 400px;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: var(--Very-pale-orange);
+}
+#chart {
+    height: 180px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+.bar:hover{
+    opacity: 0.8;
+    cursor: pointer;
+}
+.bar {
+    position: relative;
+    width: 40px;
+    background-color: var(--Soft-red);
+    border-radius: 4px;
+    transition: height 0.5s ease;
+}
+
+.bar p {
+    text-align: center;
+    margin: 5px 0;
+    display: none;
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--Dark-brown);
+    color: #fff;
+    padding: 5px;
+    border-radius: 4px;
+}
+.bar:hover p {
+    display: block;
+}
+
+#dayLabel {
+    
+    font-size: 15px;
+    color: var(--Medium-brown);
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.bar.blue{
+    background-color: var(--Cyan);
+}
+hr{
+    margin: 30px 0px;
+    border-bottom-color: var(--Medium-brown);
+    opacity: 0.3;
+}
+.footer{
+    display: flex;
+    justify-content: space-between;
+}
+.footer > .cash{
+    font-size: 40px;
+    color: var(--Dark-brown);
+    font-weight: 600;
+}
+.add{
+    padding-left: 75px;
+    color: var(--Dark-brown);
+    font-weight: 600;
+}
+.month, .total{
+    color: var(--Medium-brown);
+}
+/* mobile  */
+@media screen and (max-width:425px){
+    .balance{
+        width: 300px;
+    }
+    .second-card{
+        width: 300px;
+    }
+    .bar{
+        width: 20px;
+    }
+    .footer > .cash{
+        font-size: 30px;
+    }
+    .percent{
+        font-size: 14px;
+    }
+    .month{
+        padding-left: 12px;
+    }
+}

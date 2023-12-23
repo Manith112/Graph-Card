@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="./expenses-chart-component-main/images/favicon-32x32.png">
+    <link rel="stylesheet" href="Card.css">
+    <title>Frontend Mentor | Expenses chart component</title>
+</head>
+<body>
+    <div class="container">
+        <div class="balance">
+            <div class="word">
+                <p>My Balance</p>
+                <h2>$921.48</h2>
+            </div>
+            <img src="./expenses-chart-component-main/images/logo.svg" alt="">
+        </div>
+        <div class="second-card">
+            <h2>Spending - Last 7 days</h2>
+            <div id="chart"></div>
+            <div id="dayLabel"></div>
+            <hr>
+            <p class="total">Total this month</p>
+            <div class="footer">
+                <p class="cash">$478.33</p>
+                <div class="percent">
+                    <p class="add">+2.4%</p>
+                    <p class="month">from last month</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+         const spendingData = [17.45, 34.91, 52.36, 31.07, 23.39, 43.28, 25.48];
+        const days = [ 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+        const modifiedSpendingData = spendingData.map(height => height * 2.5);
+        document.addEventListener('DOMContentLoaded', () => {
+            const chartContainer = document.getElementById('chart');
+            const dayLabelsContainer = document.getElementById('dayLabel');
+
+            for (let i = 0; i < modifiedSpendingData.length; i++) {
+                const bar = document.createElement('div');
+                bar.classList.add('bar');
+
+                // wednesday class 
+                if (days[i] === 'Wed') {
+                    bar.classList.add('blue');
+                }
+
+                bar.style.height = modifiedSpendingData[i] + 'px';
+
+                const barText = document.createElement('p');
+                barText.textContent = `$${spendingData[i]}`;
+
+                const dayLabel = document.createElement('p');
+                dayLabel.textContent = days[i];
+
+                // const tooltip = document.createElement('div');
+                // tooltip.classList.add('tooltip');
+                // tooltip.textContent = `$${modifiedSpendingData[i]}`;
+                // bar.appendChild(tooltip);
+
+                // bar.addEventListener('mouseover', () => {
+                //     tooltip.style.display = 'block';
+                // });
+
+                // bar.addEventListener('mouseout', () => {
+                //     tooltip.style.display = 'none';
+                // });
+
+                bar.appendChild(barText);
+                chartContainer.appendChild(bar);
+                dayLabelsContainer.appendChild(dayLabel);
+            }})
+    </script>
+</body>
+</html>
